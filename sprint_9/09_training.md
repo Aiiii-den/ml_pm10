@@ -1,4 +1,4 @@
-### Sprint 8: 18.08. - 01.09.2024
+### Sprint 9: 19.08. - 01.09.2024
 
 #### Phase Three - Training and validating:
 __Part 3:__
