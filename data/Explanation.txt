@@ -1,0 +1,3 @@
+Copy of all data, so that everything is in one spot.
+
+For now I will just copy everything I have and later clean up all the files using old references (new branch)

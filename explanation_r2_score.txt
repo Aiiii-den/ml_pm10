@@ -1,0 +1,3 @@
+# R2 score: vergleichen Modellvorhersagen mit der Abweichung vom Mittelwert, im Vergleich mit absoluten banalsten Mittelwert vorhersage
+# d.h. Vergleicht die Vorhersage des Modells vs einfach den absoluten Mittelwert für die X vorherzusagen
+# je höher desto besser

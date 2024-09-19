@@ -1,0 +1,1 @@
+cut off wind data from Mai on

@@ -1,0 +1,8 @@
+**Random Forest:** 
+      - input features: ['hour', 'day', 'month', 'year', 'day_of_week', 'is_weekend', 'no2_h-1', 'no_h-1', 'nox_h-1', 'pm10_h-1', 'pm2.5_h-1']
+      - best results: RandomForestRegressor(max_depth=15, max_features='sqrt', min_samples_leaf=5, random_state=123)
+      - test_median_absolute_error: 1.56 (+/- 0.10)
+      - train_median_absolute_error: 1.24 (+/- 0.01) 
+      - overfitting: barely any (difference of 0.32)
+      - comparison to other models: better test and train results -> nr. 1
+      

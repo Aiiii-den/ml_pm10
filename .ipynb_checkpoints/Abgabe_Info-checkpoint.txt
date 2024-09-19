@@ -1,0 +1,15 @@
+Git repo, Frau Mihaljevic einladen
+- requirements.txt mit allen Python packages und version
+- console "pip list > requirements.txt" or pip freeze oder mit conda als YAML
+
+Notebooks modularisieren und Code kommentieren (Ziele, lesbar, nachvollziehbar)
+Dokumentation: kann einfach in die Readme (plus technische Beschreibung) --> Einführung (Relevanz, Studien), Methodik (Modelle erklären), Verlauf (Sprints), Analyse & Diskussion, Limitations & Future Possibilites (f.e. add car data to traffic stations)
+wenn's gut läuft Streamlit App deployed
+    - evtl extra Repo für Streamlit App
+    - einen Aspekt aussuchen für die Streamlit App (Datenvisualisierung, Modell) -- Do I have a visualisation of monthly average over a year
+Limitations & Future Possibilities
+
+
+- ABGABE: Git repo, Frau Milj einladen
+    - requirements.txt mit allen Python packages und version
+    - console "pip list > requirements.txt" or pip freeze oder mit conda als YAML
