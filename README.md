@@ -176,7 +176,7 @@ Outcome: Imputed missing values for ‘year built’ and removed extreme outlier
 - explain situation with only getting the data of the past hour 20 min after it's past
 - Model currently trained on data until Mai 2024, could be retrained every month to stay up to date
 
-### 4. Analysis & Discussion #TODO
+### 4. Analysis #TODO
 
 ###### Use Case 1
 Structure:
@@ -208,10 +208,15 @@ Structure:
         Example: “Location had the highest feature importance, confirming that real estate prices are heavily influenced by geographic location.”
 3. Visuals: Present tables or graphs that show model performance, feature importance, or other key insights.
 
-### 5. Limitations & Future Possibilities 
+### 5. Conclusion #TODO
+
+
+### 6. Limitations & Future Possibilities 
 ###### _Data Limitations_
 One of the main issue for utilising the trained model is the different data availability at each weather station in Berlin. 
-For example mc282 - Karlshorst does not measure pm10 nor pm2.5 and is therefore not included in the stations the model can be applied to. In addition, multiple null values left gaps in the training data since data imputation was not feasable in the beginning and all null data was dropped. Finally, the utilised API only publishes the data for the previous hour around 20 minutes after the hour has passed; however, this is not always exactly timed. This leads to problems when real time data is needed at an exact time.
+For example mc282 - Karlshorst does not measure pm10 nor pm2.5 and is therefore not included in the stations the model can be applied to. 
+In addition, multiple null values left gaps in the training data since data imputation was not feasible in the beginning and all null data was dropped. 
+Finally, the utilised API only publishes the data for the previous hour around 20 minutes after the hour has passed; however, this is not always exactly timed. This leads to problems when real time data is needed at an exact time.
 
 ###### _Model Constraints_
 While Random Forest Regression had the best result for most use cases and versions, it is computationally more expensive and takes longer to hyper-validate and train than the slightly weaker performing Decision Tree Regression model.
@@ -226,3 +231,6 @@ For example, training on h-2 to predict values two hours into the future.
 <br>
 In regard to use case 3 an iterative approach seems appropriate because as of now only the first missing hour is predictable. 
 To completely fill all missing values, including longer time periods, the trained model could be used to incrementally predict each value one by one and utilise the predicted value as input for the following prediction.	Additionally, more functionality could be added to the Streamlit app. For example the treshhold for pm10 measurements according to the EU and/or WHO within the line graphs.
+<br>
+Additionally, the repository could be resturctured and clean in a way that the data files are not scattered in multiple directories
+to make navigating and using the data more efficient.
