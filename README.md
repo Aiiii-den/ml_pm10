@@ -100,7 +100,8 @@ The data includes the following columns:
 - WINDGESCHWINDIGKEIT - engl.: wind speed
 - WINDRICHTUNG - engl.: wind direction
 - eor - engl.: eor
-- <br>
+
+<br>
 Out of those the date of measurement, wind speed and wind direction were used as input features for training the model by being merged with the air particle data based on the date of measurement/datetime.
 
 ###### _Data Preprocessing and Engineering_
