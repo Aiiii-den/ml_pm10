@@ -150,8 +150,8 @@ The project consist of 11 sprints running from BEGINNING DATE to END DATE, exclu
 The sprint planning was structured according to the ML development cycle by Microsoft.
 https://learn.microsoft.com/en-us/azure/architecture/data-science-process/overview
 This cycle includes five phases:
-Business Understanding, Data Acquisition & Understanding, Feature Engineering, Modelling and Deployment. Although the model proposes a 
-circular and iterative development lifecycle this project was done in the following order:
+Business Understanding, Data Acquisition & Understanding, Feature Engineering, Modelling, Deployment and Customer Acceptance. Although the model proposes a 
+circular and iterative development lifecycle this project was done in the following order, excluding the last phase of the original lifecycle:
 1. Business Understanding (Phase 1)
 2. Data Acquisition & Understanding (Phase 2)
 3. Modelling (Phase 3)
@@ -205,8 +205,8 @@ the second half of the page twice. This is assumed to be caused by the API call 
 ###### Use Case 1
 An overview of the results for training and testing Decision Tree Regression, Random Forest Regression and k-Nearest-Neighbor 
 can be found in table 1. Each machine learning model is annotated with the version of input features used.
-Version 1 focuses on datetime features only. Version 2 add wind data and version three utilises datetime, fine dust and 
-in a subversion wind data. For a more detailed explanation please refer to the [versioning information](https://github.com/Aiiii-den/ml_pm10/blob/documentation/sprint_9/uc1_versioning_information_v2.md) file.
+Version 1 focuses on datetime features only. Version 2 adds wind data and version three utilises datetime, fine dust and 
+in one sub-version wind data. For a more detailed explanation please refer to the [versioning information](https://github.com/Aiiii-den/ml_pm10/blob/documentation/sprint_9/uc1_versioning_information_v2.md) file.
 <br>
 
 The best performing model, considering test median error and rate of overfitting, is the DecisionTreeRegressor V3.1. 
