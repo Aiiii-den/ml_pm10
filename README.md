@@ -93,13 +93,13 @@ However, later on the data was acquired using an [automated script](https://gith
 
 The file _stundenwerte_wind_399_akt_ includes the wind information for the at Berlin Alexanderplatz at a height of 37 meter.
 The data includes the following columns: 
-- STATIONS_ID - engl.: station_id
-- MESS_DATUM - engl.: date of measurement
-- QUALITAETS_NIVEAU - engl.: quality of measurement
-- STRUKTUR_VERSION - engl.: version of structure
-- WINDGESCHWINDIGKEIT - engl.: wind speed
-- WINDRICHTUNG - engl.: wind direction
-- eor - engl.: eor
+- STATIONS_ID - eng.: station_id
+- MESS_DATUM - eng.: date of measurement
+- QUALITAETS_NIVEAU - eng.: quality of measurement
+- STRUKTUR_VERSION - eng.: version of structure
+- WINDGESCHWINDIGKEIT - eng.: wind speed
+- WINDRICHTUNG - eng.: wind direction
+- eor - eng.: eor
 
 <br>
 Out of those the date of measurement, wind speed and wind direction were used as input features for training the model by being merged with the air particle data based on the date of measurement/datetime.
