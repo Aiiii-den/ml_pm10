@@ -39,10 +39,10 @@ assess air quality over time, and accurately support long-term environmental dec
 
 To address these problem statements three use cases were created. The first two focus on predicting pm10 values of the future,
 whereas the third use cas has the goal of imputing missing historic data.
-1. **Use Case 1:** Predicting the pm10 value of the next hour without historic pm10 and pm2.5 data outcomes without historic data, exclusively based on correlating measured data points.  
-<br>
+1. **Use Case 1:** Predicting the pm10 value of the next hour without historic pm10 and pm2.5 data outcomes without historic data, exclusively based on correlating measured data points.
+   
 2. **Use Case 2:** Predicting the pm10 value of the next hour by including historic pm10 and pm2.5 as well as correlating data points.   
-<br>
+
 3. **Use Case 3:** Imputing missing pm10 values based on historic pm10 and correlating data points.    
 
 ###### _Objective_   
