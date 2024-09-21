@@ -106,24 +106,26 @@ Out of those the date of measurement, wind speed and wind direction were used as
 
 ###### _Data Preprocessing and Engineering_
 **Air particle data** #TODO
-<br>
-_Data Cleaning:_ Explain the steps you took to clean the data.
-<br>
-_Feature Engineering:_ Discuss any features you created or modified.
-<br>
-_Train-Test Splitting:_ Detail how the data was split into training and test sets
-<br>
-_Sprint Tie-In:_ Mention that Sprints 2 and 3 were dedicated to data cleaning and feature engineering. These sprints addressed handling missing values, outliers, and creating new features to improve model performance.
 
-**Wind data** #TODO
+_Data Cleaning:_ For the air particle data all null values were dropped after careful consideration.
+
+_Feature Engineering:_ Six new features were extracted from the datetime column to provide a clearer understanding of 
+how different aspects of the datetime information influence the model.These six features are:
+_hour_, _day_, _month_, _year_, _day_of_week_, and _is_weekend_
+
+**Wind data**
+
+_Data Cleaning:_ For the wind data no cleaning was required because the data did not have any missing values.
+
+_Feature Engineering:_ No new features were added; however, the columns _WINDGESCHWINDIGKEIT_ and _WINDRICHTUNG_ were
+renamed to _wind_speed_ and _wind_direction_.
 <br>
-_Data Cleaning:_ Explain the steps you took to clean the data.
-<br>
-_Feature Engineering:_ Discuss any features you created or modified.
-<br>
-_Train-Test Splitting:_ Detail how the data was split into training and test sets
-<br>
-_Sprint Tie-In:_ Mention that Sprints 2 and 3 were dedicated to data cleaning and feature engineering. These sprints addressed handling missing values, outliers, and creating new features to improve model performance.
+
+The final dataframe after data cleaning, feature engineering and merging the air particle data and wind data
+is shown in figure 1.
+
+![Complete Dataframe](https://github.com/Aiiii-den/ml_pm10/blob/documentation/archive/final_presentation/media/heatmaps/df_merged.png?raw=true)
+_Figure 1: Overview of the complete dataframe after data pre-processing and feature engineering_
 
 ###### _Machine Learning Models_ #TODO
 _Model Selection:_ Describe the models you chose and why. 
