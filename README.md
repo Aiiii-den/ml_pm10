@@ -125,6 +125,7 @@ The final dataframe after data cleaning, feature engineering and merging the air
 is shown in figure 1.
 
 ![Complete Dataframe](https://github.com/Aiiii-den/ml_pm10/blob/documentation/archive/final_presentation/media/heatmaps/df_merged.png?raw=true)
+
 _Figure 1: Overview of the complete dataframe after data pre-processing and feature engineering_
 
 ###### _Machine Learning Models_ #TODO
@@ -214,6 +215,7 @@ The input features and hyperparameter of DecisionTreeRegressor V3.1 are the foll
 | RandomForest V3.1    | 5.51 (+/- 0.38)            | 2.92 (+/- 0.05)             |  2.59      |
 | kNN V1.0             | 7.04 (+/- 0.37)            | 4.72 (+/- 0.14)             |  2.32      |
 | kNN V1.1             | 7.44 (+/- 0.39)            | 7.44 (+/- 0.32)             |  0.00      |
+
 _Table 1: Final results after hyperparameter tuning and cross-validation for use case 1_
 
 This shows that adding wind data to the training features has a positive effect on the prediction.
@@ -239,6 +241,7 @@ The input features and hyperparameter of RandomForestRegressor V3.0 are the foll
 | DecisionTree V3.1    | 2.23 (+/- 0.14)                | 1.89 (+/- 0.03)             | 0.34       |
 | RandomForest V3.0    | 1.56 (+/- 0.10)                | 1.24 (+/- 0.01)             | 0.32       |
 | RandomForest V3.1    | 1.61 (+/- 0.09)                | 1.24 (+/- 0.01)             | 0.37       |
+
 _Table 2: Final results after hyperparameter tuning and cross-validation for use case 2_
 
 Contrary to use case 1, wind data did not make a significant difference when predicting pm10 values based on past no, no2, nox,
@@ -266,6 +269,7 @@ The input features and hyperparameter of RandomForestRegressor V1 are the follow
 | DecisionTree V2 | 1.86 (+/- 0.14)            | 1.61 (+/- 0.04)             | 0.25       |
 | RandomForest V1 | 1.54 (+/- 0.11)            | 1.09 (+/- 0.01)             | 0.45       |
 | RandomForest V2 | 1.55 (+/- 0.12)            | 1.28 (+/- 0.01)             | 0.27       |
+
 _Table 3: Final results after hyperparameter tuning and cross-validation for use case 3_
 
 This shows that the imputation of pm10 based on the previous hour is possible with a with an accuracy that meets the expectations
