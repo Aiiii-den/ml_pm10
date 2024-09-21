@@ -105,7 +105,7 @@ The data includes the following columns:
 Out of those the date of measurement, wind speed and wind direction were used as input features for training the model by being merged with the air particle data based on the date of measurement/datetime.
 
 ###### _Data Preprocessing and Engineering_
-**Air particle data** #TODO
+**Air particle data** 
 
 _Data Cleaning:_ For the air particle data all null values were dropped after careful consideration.
 
@@ -134,23 +134,27 @@ _Model Selection:_ Describe the models you chose and why.
 _Rationale:_ Explain your reasoning behind choosing these models. 
 <br>
 _Hyperparameter Tuning:_ Detail the strategies used to tune the models. 
-<br>
-_Sprint Tie-In:_ Sprints 4 to 6 covered model selection, baseline testing, and hyperparameter tuning. You can mention that Sprint 4 focused on trying out different models, Sprint 5 evaluated the models’ baseline performances, and Sprint 6 handled hyperparameter tuning using techniques like grid search and randomized search.
 
 ###### _Model Evaluation_ #TODO
 _Cross-Validation:_ Detail the cross-validation strategy used.
 	Example: “5-fold cross-validation was used to prevent overfitting and ensure the model generalized well.”
 <br>
 _Evaluation Metrics:_ Describe the metrics used to assess model performance.
-<br>
-_Sprint Tie-In:_ Sprints 7 and 8 focused on model evaluation and testing strategies. Sprint 7 implemented cross-validation, while Sprint 8 measured and compared the models using RMSE, MAE, and R-squared values.
 
 ### 3. Sprint Overview #TODO
 The project consist of 11 sprints running from BEGINNING DATE to END DATE, excluding a summer break from BD-ED. 
-The sprint planning was structured according to the ML development cycle by SOURCE. This cycle includes four or five 'TODO'
-phases. 
+The sprint planning was structured according to the ML development cycle by Microsoft.
+https://learn.microsoft.com/en-us/azure/architecture/data-science-process/overview
+This cycle includes five phases:
+Business Understanding, Data Acquisition & Understanding, Feature Engineering, Modelling and Deployment. Although the model proposes a 
+circular and iterative development lifecycle this project was done in the following order:
+1. Business Understanding (Phase 1)
+2. Data Acquisition & Understanding (Phase 2)
+3. Feature Engineering (Phase 3)
+4. Modelling (Phase 4)
+5. Deployment (Phase 5)
 
-###### Sprint 1: Data Research & Acquisition (Phase 1)
+###### Sprint 1: Data Research & Acquisition (Phase 1 & 2)
 Task: Gathering the data and performing an initial exploratory analysis.
 Outcome: Found several missing values and skewed data distributions in key features like ‘price’ and ‘house size’.
 NOT IN THE FIRST but Erkenntnis, dass Neujahr und Ostern große pm10 Mengen verursachen -- Link zur Studie zu Ostern in Hamburg (https://luft.hamburg.de/resource/blob/774550/528d6ac03e2a09cd495dd8b5c54bec80/bericht-osterfeuer-feinstaub-hamburg-2023-data.pdf)
@@ -159,23 +163,23 @@ NOT IN THE FIRST but Erkenntnis, dass Neujahr und Ostern große pm10 Mengen veru
 Task: Removing duplicates and handling missing data.
 Outcome: Imputed missing values for ‘year built’ and removed extreme outliers from the ‘price’ column.
 
-###### Sprint 3: Data Exploration & Model Selection (Phase 2)
+###### Sprint 3: Data Exploration (Phase 2)
 
 ###### Sprint 4: Data Exploration (Phase 2)
 
-###### Sprint 5: Data Exploration and Feature Engineering (Phase 2)
+###### Sprint 5: Data Exploration and Feature Engineering (Phase 2 & 3)
 
-###### Sprint 6: Data Exploration, Feature Engineering, Model Selection (Phase 2)
+###### Sprint 6: Data Exploration, Feature Engineering, Model Selection (Phase 2, 3 & 4)
 
-###### Sprint 7: Data Exploration & Model Training + Evaluation (Phase 2 & 3)
+###### Sprint 7: Data Exploration & Model Training + Evaluation (Phase 2 & 4)
 
-###### Sprint 8: Model Training + Evaluation (Phase 3)
+###### Sprint 8: Model Training + Evaluation (Phase 4)
 
-###### Sprint 9: Model Training + Evaluation (Phase 3)
+###### Sprint 9: Model Training + Evaluation (Phase 4)
 
-###### Sprint 10: Final Testing and Model Comparison (Phase 3)
+###### Sprint 10: Final Testing and Model Comparison (Phase 4)
 	
-###### Sprint 11: Streamlit App Development + Deployment (Phase 4)
+###### Sprint 11: Streamlit App Development + Deployment (Phase 5)
 - describe what can be done and seen in the app
 - explain situation with only getting the data of the past hour 20 min after it's past
 - Model currently trained on data until Mai 2024, could be retrained every month to stay up to date
