@@ -24,18 +24,3 @@ __Part 3:__
 #### TODO:
 - for v3 move options for values in column for each --> pm10_value, no_value, ox_value and use value of the previous hour!!
     - might be easier to just filter everything and merge it later on for the h-1 --> STILL USE CASE 1
-
-
-### FINAL GOAL: REGRESSION
-- nur die Zeitdaten und damit Vorhersagen
-- danach mehr features -> anderer Use Case - Value Imputation
-- Train with random train-validate && train with time snippets
-
-1. Nur Zeit - Vorhersage, gleiche Station
-2. Zeit + Wetter - Vorhersage - Imputation gleiche Station
-3. Zeit + Wetter - Vorhersage, anderer Station für die Station (Modell nehmen und auf andere Station testen)
-4. Anderen Wert, den ich messen kann + evtl andere feature - Inferenz - ein Sensor ausgefallen
-
-VARIANTEN, WAS MODELLIEREN, VOR UND NACHTEIL IN DIE DOKU
-
-BASELINE MEDIAN TRAININGSDATENSATZ und damit die Modelle vergleichen

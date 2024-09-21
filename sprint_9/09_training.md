@@ -30,7 +30,7 @@ __Part 3:__
       - test_median_absolute_error: 5.51 (+/- 0.38)
       - train_median_absolute_error: 2.92 (+/- 0.05)
       - overfitting: strong (difference of 2.59)
-      - comparison to other model: ne 2 because of strong overfitting
+      - comparison to other model: nr 2 because of strong overfitting
 
 ----------------------------------------------------------------
 _comment:_ Use Case two has been trained by using all available data at the weather station (including pm10, pm2.5)

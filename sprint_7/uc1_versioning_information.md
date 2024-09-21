@@ -1,4 +1,4 @@
-#### Legende (was ist das englische Wort dafür??)
+#### Legend
 
 Version:
 - 1: Prediction based on datetime only -- USE CASE 1 (tatsächliche Vorhersage)
@@ -18,11 +18,3 @@ Version:
     - only no
     - no and o2
     - only o2 -- **MC124 DOESNT HAVE O2 measurements!!**
-
-TODO (nach Helena):
-- einmal komplettes tuning für Version 1.0
-- danach 1.1
-- danach 2.0
-- danach 2.1
-
-- WOCHENTAGE AUFLÖSEN IN SPALTE PRO WOCHENTAG MIT BOOLEAN

@@ -146,7 +146,7 @@ _Cross-Validation:_ Detail the cross-validation strategy used.
 _Evaluation Metrics:_ Describe the metrics used to assess model performance.
 
 ### 3. Sprint Overview #TODO
-The project consist of 11 sprints running from BEGINNING DATE to END DATE, excluding a summer break from BD-ED. 
+The project consist of 11 sprints running from April 4th 2024 to September 23rd 2024, excluding a summer break from 29.07. - 19.08. 
 The sprint planning was structured according to the ML development cycle by Microsoft.
 https://learn.microsoft.com/en-us/azure/architecture/data-science-process/overview
 This cycle includes five phases:
@@ -268,6 +268,27 @@ Contrary to use case 1, wind data did not make a significant difference when pre
 pm10 and pm2.5. However, the impact of pm10 and pm2.5 is outstanding, leading to a difference of 4.47μg/m³ in test median absolute error
 comparing RandomForest V3.0 use case 1 and RandomForest V3.0 use case 2. Additionally, the overfitting was severely reduced.
 
+Following the training and evaluation the best performing model (RandomForestRegressor V3.0) was used to for final testing at 
+four station with yet unknown data for the model. The stations include: 
+1. mc124 Tempelhof-Schöneberg (original station)
+2. mc190 Wedding - same category as mc124 (traffic)
+3. mc010 Wedding - different category as mc124 (residential area)
+4. mc032 Grunewald - different category as mc124 (city outskirt)
+
+As seen in table 3, the model performs best at mc124 and mc190, both stations of the category traffic. Furthermore, it performed 
+the worst at station mc032 with a deviation of around ~10.6%. This does not meet the previously set requirements of median absolute
+error < 10%. This is most likely caused by the difference of locations, because mc032 is marked as a forest station and therefore
+influences the air particles more strongly than stations in residential areas (like mc010).
+
+| Station | Median pm10 value | Median absolute error | Possible deviation range |
+|---------|-------------------|-----------------------|--------------------------|
+| mc124   | 18.00             | 1.40                  | 16.60 - 19.40            |
+| mc190   | 18.00             | 1.33                  | 16.67 - 19.33            |
+| mc010   | 14.00             | 1.23                  | 12.77 - 15.23            |
+| mc032   | 11.00             | 1.17                  | 09.83 - 12.17            |
+
+_Table 3: Final results of applying the model to new data from four different stations_
+
 ###### Use Case 3
 Use case 3, imputation of missing historical data, utilises a different versioning system. Both version include the value of 
 no2, no, nox of the current hour, and datetime features. However, in version 1, additionally to the pm10 and pm2.5 values of the previous hour,
@@ -290,7 +311,7 @@ The input features and hyperparameter of RandomForestRegressor V1 are the follow
 | RandomForest V1 | 1.54 (+/- 0.11)            | 1.09 (+/- 0.01)             | 0.45       |
 | RandomForest V2 | 1.55 (+/- 0.12)            | 1.28 (+/- 0.01)             | 0.27       |
 
-_Table 3: Final results after hyperparameter tuning and cross-validation for use case 3_
+_Table 4: Final results after hyperparameter tuning and cross-validation for use case 3_
 
 This shows that the imputation of pm10 based on the previous hour is possible with a with an accuracy that meets the expectations
 of test median absolute error < 2μg/m³ and overfitting rate < 0.5μg/m³. Nevertheless, longer periods of missing data are not able
