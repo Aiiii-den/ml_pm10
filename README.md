@@ -139,11 +139,34 @@ _Rationale:_ Explain your reasoning behind choosing these models.
 <br>
 _Hyperparameter Tuning:_ Detail the strategies used to tune the models. 
 
+kNN
+Decision Tree
+Random Forest
+
+Hyperparameter: 
+param_grid = {
+    'max_depth': range(5, 35, 5),
+    'min_samples_leaf': [5, 10, 15, 20, 25, 30, 40, 50],
+    'max_features': ["sqrt", "log2"],  # "auto" is deprecated and not used for decision trees
+    'random_state': [123]
+}
+
 ###### _Model Evaluation_ #TODO
 _Cross-Validation:_ Detail the cross-validation strategy used.
 	Example: “5-fold cross-validation was used to prevent overfitting and ensure the model generalized well.”
 <br>
+scores = cross_validate(decision_tree, X, y, cv=5, scoring=scorers)
+
 _Evaluation Metrics:_ Describe the metrics used to assess model performance.
+
+scorers = {
+    'mean_absolute_error': make_scorer(mean_absolute_error, greater_is_better=False),
+    'median_absolute_error': make_scorer(median_absolute_error, greater_is_better=False),
+    'root_mean_squared_error': make_scorer(root_mean_squared_error, greater_is_better=False),
+    'mean_squared_error': make_scorer(mean_squared_error, greater_is_better=False)
+}
+
+acceptance criteria: test median absolute error <= 10% of median value and overfitting rate (|test mae - train mae|) of <= 0.5
 
 ### 3. Sprint Overview #TODO
 The project consist of 11 sprints running from April 4th 2024 to September 23rd 2024, excluding a summer break from 29.07. - 19.08. 
@@ -321,6 +344,14 @@ the prediction of the next hour.
 
 ### 5. Conclusion #TODO
 
+TODOOOOOOO
+Use case 1 not successful
+<br>
+Use case 2 successful for stations of category traffic and residential areas (background), 
+city outskirts (suburbs) slightly missed the acceptance criteria; however only one station, no generalisation possible
+<br>
+Use case 3 partly successful - can impute data for a single missing hour. To impute longer
+periods prediction model of 2.5 needed to iteratively fill the missing values
 
 ### 6. Limitations & Future Possibilities 
 ###### _Data Limitations_
@@ -332,7 +363,7 @@ Finally, the utilised API only publishes the data for the previous hour around 2
 ###### _Model Constraints_
 While Random Forest Regression had the best result for most use cases and versions, it is computationally more expensive and takes longer to hyper-validate and train than the slightly weaker performing Decision Tree Regression model.
 <br> Additionally, the current model has been trained on data until Mai 2024 and is not being automatically retrained on new data.
-This retraining would be necessary in the long run to take current pm10 developments into account for predictions.
+This retraining would be necessary in the long run to take current pm10 developments into account for future predictions.
 
 ###### _Future Possibilities_
 To improve use case 1 the particle O₃ could be added to the training features, due to its very high correlation to pm10. 
@@ -343,7 +374,8 @@ could be beneficial. Moreover, the model could be trained to predict pm10 values
 For example, training on h-2 to predict values two hours into the future.
 <br>
 In regard to use case 3 an iterative approach seems appropriate because as of now only the first missing hour is predictable. 
-To completely fill all missing values, including longer time periods, the trained model could be used to incrementally predict each value one by one and utilise the predicted value as input for the following prediction.	Additionally, more functionality could be added to the Streamlit app. For example the treshhold for pm10 measurements according to the EU and/or WHO within the line graphs.
+To completely fill all missing values, including longer time periods, the trained model could be used to incrementally predict each value one by one and utilise the predicted value as input for the following prediction.	Additionally, more functionality could be added to the Streamlit app. 
+For example the threshold for pm10 measurements according to the EU and/or WHO within the line graphs.
 <br>
-Additionally, the repository could be resturctured and clean in a way that the data files are not scattered in multiple directories
+Additionally, the repository could be restructured and clean in a way that the data files are not scattered in multiple directories
 to make navigating and using the data more efficient.
