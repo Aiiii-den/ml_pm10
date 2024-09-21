@@ -1,7 +1,7 @@
 ### 1. Introduction
 ###### _Context and Motivation_ 
 
-Pm10, abbreviation of particle matter 10, is an air particle with a diameter of less than 10µm. Although it seems 
+Pm10, abbreviation of particle matter 10, is an air particle with a diameter of less than 10µm and is measured in micrograms per cubic meter (μg/m³). Although it seems 
 the majority of people in Berlin are not aware of it, pm10 can cause severe short and long term health issues.
 
 Short term health complications include:
@@ -177,37 +177,100 @@ Outcome: Imputed missing values for ‘year built’ and removed extreme outlier
 - explain situation with only getting the data of the past hour 20 min after it's past
 - Model currently trained on data until Mai 2024, could be retrained every month to stay up to date
 
-### 4. Analysis #TODO
+### 4. Analysis & Discussion
 
 ###### Use Case 1
-Structure:
-1. Model Performance:
-        Summarize the performance of each model.
-        Example: “Random Forest and XGBoost significantly outperformed Linear Regression, with XGBoost achieving the best RMSE of 490.” 
-2. Insights Gained:
-        Discuss what you learned from the feature importance analysis.
-        Example: “Location had the highest feature importance, confirming that real estate prices are heavily influenced by geographic location.”
-3. Visuals: Present tables or graphs that show model performance, feature importance, or other key insights.
+An overview of the results for training and testing Decision Tree Regression, Random Forest Regression and k-Nearest-Neighbor 
+can be found in table 1. Each machine learning model is annotated with the version of input features used.
+Version 1 focuses on datetime features only. Version 2 add wind data and version three utilises datetime, fine dust and 
+in a subversion wind data. For a more detailed explanation please refer to the [versioning information](https://github.com/Aiiii-den/ml_pm10/blob/documentation/sprint_9/uc1_versioning_information_v2.md) file.
+<br>
+
+The best performing model, considering test median error and rate of overfitting, is the DecisionTreeRegressor V3.1. 
+This model used all datetime features, all fine dust features of the previous hour but excluded the wind data. 
+With a median absolute error for test data of 5.94μg/m³ it showed the second-best result. 
+While RandomForestRegressor V3.1 had a test median absolute error value of 5.51μg/m³, and therefore the best test error rate,
+it showed strong overfitting with a difference of 2.59μg/m³ between test and train median absolute error rates. 
+Because of this the DecisionTreeRegressor V3.1 was chosen as the best performing model with an overfitting rate of only 0.70.
+
+
+The input features and hyperparameter of DecisionTreeRegressor V3.1 are the following: 
+- **Input features:** hour, day, month, year, day_of_week, is_weekend, no2_h-1, no_h-1, nox_h-1, wind_speed_h-1, wind_direction_h-1
+- **Hyperparameter:** max_depth=10, max_features='sqrt', min_samples_leaf=40, random_state=123
+
+| Model + Version      | TEST_median_absolute_error | TRAIN_median_absolute_error | Difference |
+|----------------------|----------------------------|-----------------------------|------------|
+| DecisionTree V1.0    | 6.93 (+/- 0.34)            | 6.49 (+/- 0.15)             |  0.44      |
+| DecisionTree V1.1    | 7.41 (+/- 0.43)            | 6.73 (+/- 0.14)             |  0.68      |
+| DecisionTree V2.0    | 6.34 (+/- 0.17)            | 5.12 (+/- 0.09)             |  1.22      |
+| DecisionTree V3.0    | 6.40 (+/- 0.48)            | 5.34 (+/- 0.11)             |  1.06      |
+| DecisionTree V3.1    | 5.94 (+/- 0.49)            | 5.24 (+/- 0.13)             |  0.70      |
+| RandomForest V1.0    | 6.83 (+/- 0.42)            | 5.64 (+/- 0.09)             |  1.19      |
+| RandomForest V1.1    | 7.11 (+/- 0.44)            | 6.86 (+/- 0.14)             |  0.25      |
+| RandomForest V2.0    | 6.27 (+/- 0.35)            | 4.23 (+/- 0.03)             |  2.04      |
+| RandomForest V3.0    | 6.03 (+/- 0.50)            | 3.24 (+/- 0.03)             |  2.79      |
+| RandomForest V3.1    | 5.51 (+/- 0.38)            | 2.92 (+/- 0.05)             |  2.59      |
+| kNN V1.0             | 7.04 (+/- 0.37)            | 4.72 (+/- 0.14)             |  2.32      |
+| kNN V1.1             | 7.44 (+/- 0.39)            | 7.44 (+/- 0.32)             |  0.00      |
+_Table 1: Final results after hyperparameter tuning and cross-validation for use case 1_
+
+This shows that adding wind data to the training features has a positive effect on the prediction.
+However, with a median absolute error between 5.51μg/m³ and 7.44μg/m³ of a median pm10 value of 20μg/m³ the predictions
+are lacking in accuracy and do not meet the expectation of ~10% deviation of the median value.
 
 ###### Use Case 2
-Structure:
-1. Model Performance:
-        Summarize the performance of each model.
-        Example: “Random Forest and XGBoost significantly outperformed Linear Regression, with XGBoost achieving the best RMSE of 490.” 
-2. Insights Gained:
-        Discuss what you learned from the feature importance analysis.
-        Example: “Location had the highest feature importance, confirming that real estate prices are heavily influenced by geographic location.”
-3. Visuals: Present tables or graphs that show model performance, feature importance, or other key insights.
+
+For use case 2 training and evaluation only the two best performing models and the best main version from use case 1 were utilised. 
+These are DecisionTreeRegressor and RandomForestRegressor for version 3. As shown in table 2 none of the trained models exhibit 
+overfitting, with all values below 0.5μg/m³. Therefore, the best model was selected based on the median absolute error for test data.  
+Out of all four models the RandomForestRegressor V3.0 is the best model for use case 2. With a test median absolute error of 
+1.56μg/m³. 
+
+
+The input features and hyperparameter of RandomForestRegressor V3.0 are the following: 
+- **Input features:** hour, day, month, year, day_of_week, is_weekend, no2_h-1, no_h-1, nox_h-1, pm10_h-1, pm2.5_h-1
+- **Hyperparameter:** max_depth=15, max_features='sqrt', min_samples_leaf=5, random_state=123
+
+| Model + Version      | TEST_median_absolute_error in  | TRAIN_median_absolute_error | Difference |
+|----------------------|--------------------------------|-----------------------------|------------|
+| DecisionTree V3.0    | 1.89 (+/- 0.14)                | 1.67 (+/- 0.06)             | 0.29       |
+| DecisionTree V3.1    | 2.23 (+/- 0.14)                | 1.89 (+/- 0.03)             | 0.34       |
+| RandomForest V3.0    | 1.56 (+/- 0.10)                | 1.24 (+/- 0.01)             | 0.32       |
+| RandomForest V3.1    | 1.61 (+/- 0.09)                | 1.24 (+/- 0.01)             | 0.37       |
+_Table 2: Final results after hyperparameter tuning and cross-validation for use case 2_
+
+Contrary to use case 1, wind data did not make a significant difference when predicting pm10 values based on past no, no2, nox,
+pm10 and pm2.5. However, the impact of pm10 and pm2.5 is outstanding, leading to a difference of 4.47μg/m³ in test median absolute error
+comparing RandomForest V3.0 use case 1 and RandomForest V3.0 use case 2. Additionally, the overfitting was severely reduced.
 
 ###### Use Case 3
-Structure:
-1. Model Performance:
-        Summarize the performance of each model.
-        Example: “Random Forest and XGBoost significantly outperformed Linear Regression, with XGBoost achieving the best RMSE of 490.” 
-2. Insights Gained:
-        Discuss what you learned from the feature importance analysis.
-        Example: “Location had the highest feature importance, confirming that real estate prices are heavily influenced by geographic location.”
-3. Visuals: Present tables or graphs that show model performance, feature importance, or other key insights.
+Use case 3, imputation of missing historical data, utilises a different versioning system. Both version include the value of 
+no2, no, nox of the current hour, and datetime features. However, in version 1, additionally to the pm10 and pm2.5 values of the previous hour,
+the values of the previous hour of the previously mentioned particles were used. Whereas in the second version only the
+pm10 and pm2.5 values of the previous hour and no2, no, and nox of the current hour were utilised as input features. The results for
+use case 3 are presented in table 3. Similar to use case 2 no model exhibits strong overfitting, therefore the decision of the best
+model will be made based on the test median absolute error. This results in RandomForestRegressor V1 being the best performing model.
+
+
+The input features and hyperparameter of RandomForestRegressor V1 are the following: 
+<br>
+- **Input features:** hour, day, month, year, day_of_week, is_weekend, no2, no, nox, no2_h-1, no_h-1, nox_h-1, pm10_h-1, pm2.5_h-1
+<br>
+- **Hyperparameter:** max_depth=20, max_features='sqrt', min_samples_leaf=5, random_state=123
+
+| Model + Version | TEST_median_absolute_error | TRAIN_median_absolute_error | Difference |
+|-----------------|----------------------------|-----------------------------|------------|
+| DecisionTree V1 | 1.89 (+/- 0.15)            | 1.63 (+/- 0.04)             | 0.26       |
+| DecisionTree V2 | 1.86 (+/- 0.14)            | 1.61 (+/- 0.04)             | 0.25       |
+| RandomForest V1 | 1.54 (+/- 0.11)            | 1.09 (+/- 0.01)             | 0.45       |
+| RandomForest V2 | 1.55 (+/- 0.12)            | 1.28 (+/- 0.01)             | 0.27       |
+_Table 3: Final results after hyperparameter tuning and cross-validation for use case 3_
+
+This shows that the imputation of pm10 based on the previous hour is possible with a with an accuracy that meets the expectations
+of test median absolute error < 2μg/m³ and overfitting rate < 0.5μg/m³. Nevertheless, longer periods of missing data are not able
+to be predicted by barely using this model. To achieve that goal a model predicting pm2.5 needs to be developed and 
+iteratively applied with the model of pm10 imputation. This way the predictions of pm10 and pm2.5 can be used as input for
+the prediction of the next hour. 
 
 ### 5. Conclusion #TODO
 
