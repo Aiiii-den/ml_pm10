@@ -2,7 +2,7 @@
 ###### _Context and Motivation_ 
 
 Pm10, abbreviation of particle matter 10, is an air particle with a diameter of less than 10µm and is measured in micrograms per cubic meter (μg/m³). Although it seems 
-the majority of people in Berlin are not aware of it, pm10 can cause severe short and long term health issues.
+the majority of people are not aware of it, pm10 can cause severe short and long term health issues.
 
 Short term health complications include:
 - Irritated eyes, nose and throat
@@ -16,7 +16,7 @@ Whereas long term health risks include:
 - Reduction in life expectancy
 
 I personally came into contact with the topic of air quality in 2017/18 when I spend 6 month in China. Especially in the winter 
-month the air got so bad that even opening the windows was strongly advised against. This experience caused me to be more aware
+months the air got so bad that even opening the windows was strongly advised against. This experience caused me to be more aware
 of potential harm caused by bad air quality even years after. 
 
 The motivation of this project is to bring more awareness of the effect of air quality to both my classmates and people using my 
@@ -50,12 +50,16 @@ The goal is to develop predictive models for each use case, evaluate their perfo
 and deploy the most effective model.
 
 ###### _Applied Technologies_   
-The models were developed in Jupyter Notebook using Python 3.11.8. Additionally, to organise the virtual environments Anaconda was used. All required dependencies for the project can be found in the following file: anaconda_dependencies.yaml
+The models were developed in Jupyter Notebook using Python 3.11.8. 
+Additionally, to organise the virtual environments Anaconda was used. 
+All required dependencies for the project can be found in the following file: 
+[conda_dependencies.yaml](https://github.com/Aiiii-den/ml_pm10/blob/main/configs/conda_dependencies.yaml)
 
 ### 2. Methodology
 
 ###### _Data Acquisition & Description_
 **Air particle data** 
+<br>
 The data was acquired through an open-data API provided by the city of Berlin. An overview of the API can be found under the following link: https://luftdaten.berlin.de/api/doc.
 <br>
 The model was trained on data from the station with the station code mc124. This weather station is categorised as a traffic station type and is located at Mariendorfer Damm 148, Tempelhof-Schöneberg, 12099 Berlin.
@@ -110,7 +114,7 @@ Out of those the date of measurement, wind speed and wind direction were used as
 _Data Cleaning:_ For the air particle data all null values were dropped after careful consideration.
 
 _Feature Engineering:_ Six new features were extracted from the datetime column to provide a clearer understanding of 
-how different aspects of the datetime information influence the model.These six features are:
+how different aspects of the datetime information influence the model. These six features are:
 _hour_, _day_, _month_, _year_, _day_of_week_, and _is_weekend_
 
 **Wind data**
@@ -150,9 +154,8 @@ Business Understanding, Data Acquisition & Understanding, Feature Engineering, M
 circular and iterative development lifecycle this project was done in the following order:
 1. Business Understanding (Phase 1)
 2. Data Acquisition & Understanding (Phase 2)
-3. Feature Engineering (Phase 3)
-4. Modelling (Phase 4)
-5. Deployment (Phase 5)
+3. Modelling (Phase 3)
+4. Deployment (Phase 4)
 
 ###### Sprint 1: Data Research & Acquisition (Phase 1 & 2)
 Task: Gathering the data and performing an initial exploratory analysis.
@@ -169,20 +172,33 @@ Outcome: Imputed missing values for ‘year built’ and removed extreme outlier
 
 ###### Sprint 5: Data Exploration and Feature Engineering (Phase 2 & 3)
 
-###### Sprint 6: Data Exploration, Feature Engineering, Model Selection (Phase 2, 3 & 4)
+###### Sprint 6: Data Exploration, Feature Engineering, Model Selection (Phase 2 & 3)
 
-###### Sprint 7: Data Exploration & Model Training + Evaluation (Phase 2 & 4)
+###### Sprint 7: Data Exploration & Model Training + Evaluation (Phase 2 & 3)
 
-###### Sprint 8: Model Training + Evaluation (Phase 4)
+###### Sprint 8: Model Training + Evaluation (Phase 3)
 
-###### Sprint 9: Model Training + Evaluation (Phase 4)
+###### Sprint 9: Model Training + Evaluation (Phase 3)
 
-###### Sprint 10: Final Testing and Model Comparison (Phase 4)
+###### Sprint 10: Final Testing and Model Comparison (Phase 3)
 	
-###### Sprint 11: Streamlit App Development + Deployment (Phase 5)
-- describe what can be done and seen in the app
-- explain situation with only getting the data of the past hour 20 min after it's past
-- Model currently trained on data until Mai 2024, could be retrained every month to stay up to date
+###### Sprint 11: Streamlit App Development + Deployment (Phase 4)
+The webapp can be divided into two parts: the prediction of the next pm10 value at a specific weather station, including its
+health risk score and the median absolute error of the prediction for the previous hour. The prediction is either for the current
+or the next hour, depending on the latest data point published by the station. The pm10 value of the previous hour mark is
+usually available after 20 minutes.  This means for the first 20min the model will predict the value of the previous hour. 
+Afterward the value for the next hour will be predicted.
+
+The second part of the app is the visualisation of historic data. The user can select between comparing yearly averages, 
+monthly averages, daily averages and hourly averages. The available range of data depends on the specific weather station.
+For mc124 Tempelhof-Schöneberg, the station used to train the model, data is available from 2016 to now. Whereas for MCSI
+the earliest measurement of pm10 occurred in 2020.
+
+The main challenge of the app development was dealing with cached data and storing thousands of data points. The current
+solution loads all data from January 1st 2014 to September 20th 2024 on deployment. Afterward, the system checks if new data
+is available and adds it to the existing data. Another approach could have been storing historic data in a csv file and updating
+it everytime new data is available. Additionally, when the Update Data button is clicked the website sometimes glitches and shows
+the second half of the page twice. This is assumed to be caused by the API call responses being processed.
 
 ### 4. Analysis & Discussion
 
@@ -294,6 +310,8 @@ Finally, the utilised API only publishes the data for the previous hour around 2
 
 ###### _Model Constraints_
 While Random Forest Regression had the best result for most use cases and versions, it is computationally more expensive and takes longer to hyper-validate and train than the slightly weaker performing Decision Tree Regression model.
+<br> Additionally, the current model has been trained on data until Mai 2024 and is not being automatically retrained on new data.
+This retraining would be necessary in the long run to take current pm10 developments into account for predictions.
 
 ###### _Future Possibilities_
 To improve use case 1 the particle O₃ could be added to the training features, due to its very high correlation to pm10. 
