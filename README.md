@@ -166,7 +166,7 @@ measurements, due to events, dust storms, etc. Therefore, the median absolute er
 <br> The acceptance criteria for the applicability of the model are deviance rate test median absolute error to median value of the training set <= 10%
 and overfitting/underfitting rate (|test median absolute error - train median absolute error|) <= 0.5μg/m³.
 
-### 3. Sprint Overview #TODO
+### 3. Sprint Overview
 The project consist of 11 sprints running from April 4th 2024 to September 23rd 2024, excluding a summer break from 29.07. - 19.08. 
 The sprint planning was structured according to the ML development cycle by Microsoft. [^3]
 This cycle includes five phases:
