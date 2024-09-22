@@ -132,41 +132,39 @@ is shown in figure 1.
 
 _Figure 1: Overview of the complete dataframe after data pre-processing and feature engineering_
 
-###### _Machine Learning Models_ #TODO
-_Model Selection:_ Describe the models you chose and why. 
-<br>
-_Rationale:_ Explain your reasoning behind choosing these models. 
-<br>
-_Hyperparameter Tuning:_ Detail the strategies used to tune the models. 
+###### _Machine Learning Models_ 
+For this project the following three regression models where selected: k-NN (k-nearest neighbors), Decision Tree and Random Forest. 
+K-NN was chosen for its simplicity and small amount of hyperparameters to tune. Additionally, decision tree and random forest
+were selected for their efficient handling collinearity and the interpretability of their results. Although predictions of 
+random forests are more difficult to interpret, the algorithm is less prone to overfitting and more accurate and robust than
+the decision tree algorithm. https://towardsdatascience.com/comparative-study-on-classic-machine-learning-algorithms-24f9ff6ab222
 
-kNN
-Decision Tree
-Random Forest
-
-Hyperparameter: 
+For the hyperparameter tuning of the decision tree and random forest algorithm the following param grid is used:
+``` python 
 param_grid = {
-    'max_depth': range(5, 35, 5),
+    'max_depth': range(5, 35, 5), #for decision tree & range(5, 50, 5) for random forest
     'min_samples_leaf': [5, 10, 15, 20, 25, 30, 40, 50],
-    'max_features': ["sqrt", "log2"],  # "auto" is deprecated and not used for decision trees
+    'max_features': ["sqrt", "log2"], 
     'random_state': [123]
 }
+```
 
-###### _Model Evaluation_ #TODO
-_Cross-Validation:_ Detail the cross-validation strategy used.
-	Example: “5-fold cross-validation was used to prevent overfitting and ensure the model generalized well.”
-<br>
-scores = cross_validate(decision_tree, X, y, cv=5, scoring=scorers)
-
-_Evaluation Metrics:_ Describe the metrics used to assess model performance.
-
+###### _Model Evaluation_ 
+For validation a 5-fold cross-validation was applied to prevent overfitting and ensure that the model performs well on
+training and test data. For the evaluation metrics the following scorers were utilised:
+``` python 
 scorers = {
     'mean_absolute_error': make_scorer(mean_absolute_error, greater_is_better=False),
     'median_absolute_error': make_scorer(median_absolute_error, greater_is_better=False),
     'root_mean_squared_error': make_scorer(root_mean_squared_error, greater_is_better=False),
     'mean_squared_error': make_scorer(mean_squared_error, greater_is_better=False)
 }
-
-acceptance criteria: test median absolute error <= 10% of median value and overfitting rate (|test mae - train mae|) of <= 0.5
+```
+Although mean absolute error, median absolute error, root mean squared error and mean squared error were assest, the final decision of
+model performance based on the median absolute error. This metric was selected because of many unexplainable outliers in pm10
+measurements, due to events, dust storms, etc. Therefore, the median absolute error seemed the most appropriate point of measurement.
+<br> The acceptance criteria for the applicability of the model are deviance rate test median absolute error to median value of the training set <= 10%
+and overfitting/underfitting rate (|test median absolute error - train median absolute error|) <= 0.5μg/m³.
 
 ### 3. Sprint Overview #TODO
 The project consist of 11 sprints running from April 4th 2024 to September 23rd 2024, excluding a summer break from 29.07. - 19.08. 
