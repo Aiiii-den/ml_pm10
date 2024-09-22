@@ -1,10 +1,10 @@
 ### Sprint 7: 01.07. - 14.07.2024
 
-#### Phase Two - Data aquistion and exploration:
+#### Phase Two - Data acquisition and exploration:
 __Part 7:__ 
 - created a heatmap showing the correlation between the hour of day, month, year, day, weekends and pm10
     - year huge negative correlation -> pm10 has decreased over the years
-    - the later in the week the less pm10 as well
+    - the latter in the week the less pm10 as well
     - on weekends less pm10 than on weekdays
 
 #### Decisions:
@@ -17,7 +17,7 @@ __Part 7:__
 __Part 1:__
 ##### 1.0 prediction based on all datetime data (hour, day of week, month, year, is_weekend) - version 1.0
 - regression models trained and hyperparameter tuned on all datetime features
-  - **Decision Tree:** decent accurary, no underfitting or overfitting
+  - **Decision Tree:** decent accuracy, no underfitting or overfitting
       - best results: DecisionTreeRegressor(max_depth=5, max_features='sqrt', min_samples_leaf=5,
                       random_state=123)
       - test_median_absolute_error: 6.93 (+/- 0.34)
@@ -39,7 +39,7 @@ __Part 1:__
       - comparison to other models: worst result for test data --> dropped from now on
         
 ##### 1.1 prediction based on specific datetime data (hour, day of week, month, year, is_weekend) - version 1.1
-- regression models trained and hyperparameter tuned on datetime features which show correlation to pm10 (>0.1) to show if all datetime data are neccessary
+- regression models trained and hyperparameter tuned on datetime features which show correlation to pm10 (>0.1) to show if all datetime data are necessary
     - http://localhost:8888/notebooks/project/sprint_7/heatmap_plotting_datetime_pm10/all_datetime_features_comparison.ipynb
   - **Decision Tree:** 
       - best results: DecisionTreeRegressor(max_depth=10, max_features='sqrt', min_samples_leaf=40,
@@ -64,10 +64,10 @@ __Part 1:__
 
 #### Decisions:
 - data cleaning: drop all null values
-- use "median absolute error" as main evalutation value between models -> not so much influence of new year, easter, etc.
+- use "median absolute error" as main evaluation value between models -> not so much influence of new year, easter, etc.
     - goal: median_absolute_error below 5.0 
 - **train & validate v.1:**
-    - drop kNN for future versions of model training - from v2.0 onwoards (worst test median absolute error, biggest overfitting)
+    - drop kNN for future versions of model training - from v2.0 onwards (worst test median absolute error, biggest overfitting)
     - use all datetime features since all models of v1.1 performed worse than the v1.0 equivalent
 
 #### TODO for v.2.x:
@@ -84,17 +84,3 @@ __Part 1:__
 
 - categorisation of weekdays for linear models needs to be a new column for each value
     - is_monday, is_tuesday, is_wednesday, is_thursday, is_friday, is_saturday, is_sunday
-
-### FINAL GOAL: REGRESSION
-- nur die Zeitdaten und damit Vorhersagen
-- danach mehr features -> anderer Use Case - Value Imputation
-- Train with random train-validate && train with time snippets
-
-1. Nur Zeit - Vorhersage, gleiche Station
-2. Zeit + Wetter - Vorhersage - Imputation gleiche Station
-3. Zeit + Wetter - Vorhersage, anderer Station für die Station (Modell nehmen und auf andere Station testen)
-4. Anderen Wert, den ich messen kann + evtl andere feature - Inferenz - ein Sensor ausgefallen
-
-VARIANTEN, WAS MODELLIEREN, VOR UND NACHTEIL IN DIE DOKU
-
-BASELINE MEDIAN TRAININGSDATENSATZ und damit die Modelle vergleichen
