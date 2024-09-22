@@ -179,31 +179,94 @@ circular and iterative development lifecycle this project was done in the follow
 4. Deployment (Phase 4)
 
 ###### Sprint 1: Data Research & Acquisition (Phase 1 & 2)
-Task: Gathering the data and performing an initial exploratory analysis.
-Outcome: Found several missing values and skewed data distributions in key features like ‘price’ and ‘house size’.
-NOT IN THE FIRST but Erkenntnis, dass Neujahr und Ostern große pm10 Mengen verursachen -- Link zur Studie zu Ostern in Hamburg (https://luft.hamburg.de/resource/blob/774550/528d6ac03e2a09cd495dd8b5c54bec80/bericht-osterfeuer-feinstaub-hamburg-2023-data.pdf)
+The first sprint focused on deciding on a project idea and researching quality data sets. At the end of the sprint the decision
+to predict pm10 based on a dataset from Berlin Open Data.
+<br> For more details please refer to the [sprint 1 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_1/01_use_case-data_research.md) 
+file.
 
 ###### Sprint 2: Data Exploration (Phase 2)
-Task: Removing duplicates and handling missing data.
-Outcome: Imputed missing values for ‘year built’ and removed extreme outliers from the ‘price’ column.
+Following the decision on the data source, first data analysis were conducted based on data from the weather station
+mc010 Berlin Wedding. This includes visualisations of the months December 2022, March 2023 and March 2024. This enabled
+the first irregular finding of pm10 values at the end of March 2023. At this point the Easter weekend is suspected to have caused 
+the sudden spike.
+<br>
+Additionally, a first decision on using time series prediction for the project was made.
+<br>
+For more details please refer to the [sprint 2 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_2/02_data_exploration_1.md) 
+file.
 
 ###### Sprint 3: Data Exploration (Phase 2)
+The third sprint focussed on finding further spikes in pm10 caused by public holidays with special celebratory habits. To make sure 
+the abnormal values in March 2023 were not a singular occurrence March 2024
+Furthermore, online research lead to a study from the city Hamburg about the effect of pm10 values. The study can be found here:  
+https://www.hamburg.de/resource/blob/847144/d0e93dd9d86723c7f3c549f30da2a96d/pdf-osterfeuerbericht-2024-data.pdf
+<br>
+In addition, New Years Eve 2023/24 was analysed and visualised to provide a better understanding of the influence of 
+fireworks and pyrotechnics on pm10 levels.
+<br> Lastly, it was decided to use Facebook/Metas Prophet library for time series prediction.
+<br> For more details please refer to the [sprint 3 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_3/03_data_exploration_2.md) 
+file.
 
 ###### Sprint 4: Data Exploration (Phase 2)
+The fourth sprint was used to go on a deep dive of the Easter weekend, including a detailed analysis and visualisation of 
+Easter 2024, from Friday to Sunday.
+Furthermore, a python script was implemented to request hourly data from the station mc124 Berlin Tempelhof-Schöneberg from January 1st 2008 to Mai 31sr 2024.
+However, in this sprint the first challenge occurred, caused by time-zone changes from daylight savings time. The different
+timezones in the datetime feature cause visualisations to throw errors. A first quick solution of converting the datetime to UTC
+was implemented.
+<br> For more details please refer to the [sprint 4 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_4/04_in_depth_data_exploration_1.md) 
+file.
 
 ###### Sprint 5: Data Exploration and Feature Engineering (Phase 2 & 3)
+During sprint 5 a detailed comparison of New Year's air quality from 2023 to 2024 was performed, 
+along with an annual analysis from 2016 to 2024, showing total PM10, average PM10, and PM10 counts. 
+Additionally, monthly comparisons of average PM10 were visualized, leading to a deep dive into November 2022 due to 
+significant spikes of pm10 in November 2022.
+Afterward, null values in the air quality data were analyzed, and the previous mentioned time zone issue was resolved by 
+removing time zone information from the datetime field altogether. 
+Finally, wind data was explored, and a heatmap was created to show correlations between PM10, wind speed, and wind direction.
+<br> For more details please refer to the [sprint 5 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_5/05_in_depth_data_exploration_2.md) 
+file.
 
 ###### Sprint 6: Data Exploration, Feature Engineering, Model Selection (Phase 2 & 3)
+The main aspects of sprint 6 were the merging of air quality data and wind data to create heatmap.
+This heatmap was utilised to explore correlations between air particles and wind speed.
+Furthermore, the decision to switch from time series prediction to regression based models was made.
+<br> For more details please refer to the [sprint 6 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_6/06_in_depth_data_exploration_3.md) 
+file.
 
 ###### Sprint 7: Data Exploration & Model Training + Evaluation (Phase 2 & 3)
+Sprint 7 was focused on model training and evaluation after 
+created a heatmap showing the correlation between the hour of day, month, year, day, weekends and pm10.
+During this sprint versions 1.0 and 1.1 of use case 1 for decision tree, random forest, and kNN were trained and evaluated.
+<br> For more details and results please refer to the [sprint 7 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_7/07_more_heatmaps_and_start_training.md) 
+file.
 
 ###### Sprint 8: Model Training + Evaluation (Phase 3)
+The eights sprint was used to train and evaluate use case 1 V2.0 for decision tree and random forest.
+<br> For more details and results please refer to the [sprint 8 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_8/08_training.md) 
+file.
 
 ###### Sprint 9: Model Training + Evaluation (Phase 3)
+During sprint 9 V3.0 and V3.1 of use case 1 were trained and evaluated using both decision tree and random forest models. 
+Similarly, use V3.0 and V3.1 of use case 2 underwent the same process. 
+Finally, use both versions of use case 3 were trained and evaluated using both decision tree and random forest models as well.
+The use case and model used for final testing and deployment via the streamlit app is version has been selected based 
+on the best performing model.
+<br> For more details and results please refer to the [sprint 9 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_9/09_training.md) 
+file.
 
 ###### Sprint 10: Final Testing and Model Comparison (Phase 3)
-	
+Sprint 10 main focus was testing and evaluation the performance of the previously selected final model.
+The model was tested on four stations: mc124 (the original station), mc190 (in the same category as mc124, traffic),
+mc010 (a different category, residential area), and mc032 (a different category, city outskirts). 
+The deviation range across these stations was visualized in a bar chart, and the machine learning model was 
+exported as both a .pkl and a .joblib file for future use.
+<br> For more details and results please refer to the [sprint 10 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_10) 
+file.
+
 ###### Sprint 11: Streamlit App Development + Deployment (Phase 4)
+The sole focus of sprint 11 was the development and deployment of the mandatory streamlit app.
 The webapp can be divided into two parts: the prediction of the next pm10 value at a specific weather station, including its
 health risk score and the median absolute error of the prediction for the previous hour. The prediction is either for the current
 or the next hour, depending on the latest data point published by the station. The pm10 value of the previous hour mark is
@@ -220,6 +283,8 @@ solution loads all data from January 1st 2014 to September 20th 2024 on deployme
 is available and adds it to the existing data. Another approach could have been storing historic data in a csv file and updating
 it everytime new data is available. Additionally, when the Update Data button is clicked the website sometimes glitches and shows
 the second half of the page twice. This is assumed to be caused by the API call responses being processed.
+
+Additionally, the documentation for the project was written in sprint 11 and the repository was restructured and cleaned up.
 
 ### 4. Analysis & Discussion
 
