@@ -128,7 +128,7 @@ renamed to _wind_speed_ and _wind_direction_.
 The final dataframe after data cleaning, feature engineering and merging the air particle data and wind data
 is shown in figure 1.
 
-![Complete Dataframe](https://github.com/Aiiii-den/ml_pm10/blob/documentation/archive/final_presentation/media/heatmaps/df_merged.png?raw=true)
+![Complete Dataframe](https://github.com/Aiiii-den/ml_pm10/blob/main/archive/final_presentation/media/heatmaps/df_merged.png?raw=true)
 
 _Figure 1: Overview of the complete dataframe after data pre-processing and feature engineering_
 
@@ -262,7 +262,7 @@ The model was tested on four stations: mc124 (the original station), mc190 (in t
 mc010 (a different category, residential area), and mc032 (a different category, city outskirts). 
 The deviation range across these stations was visualized in a bar chart, and the machine learning model was 
 exported as both a .pkl and a .joblib file for future use.
-<br> For more details and results please refer to the [sprint 10 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_10) 
+<br> For more details and results please refer to the [sprint 10 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_10/10_testing.md) 
 file.
 
 ###### Sprint 11: Streamlit App Development + Deployment (Phase 4)
@@ -292,7 +292,7 @@ Additionally, the documentation for the project was written in sprint 11 and the
 An overview of the results for training and testing Decision Tree Regression, Random Forest Regression and k-Nearest-Neighbor 
 can be found in table 1. Each machine learning model is annotated with the version of input features used.
 Version 1 focuses on datetime features only. Version 2 adds wind data and version three utilises datetime, fine dust and 
-in one sub-version wind data. For a more detailed explanation please refer to the [versioning information](https://github.com/Aiiii-den/ml_pm10/blob/documentation/sprint_9/uc1_versioning_information_v2.md) file.
+in one sub-version wind data. For a more detailed explanation please refer to the [versioning information](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_9/uc1_versioning_information_v2.md) file.
 <br>
 
 The best performing model, considering test median error and rate of overfitting, is the DecisionTreeRegressor V3.1. 
