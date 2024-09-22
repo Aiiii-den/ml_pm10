@@ -438,16 +438,22 @@ While Random Forest Regression had the best result for most use cases and versio
 This retraining would be necessary in the long run to take current pm10 developments into account for future predictions.
 
 ###### _Future Possibilities_
-To improve use case 1 the particle O₃ could be added to the training features, due to its very high correlation to pm10. 
+To improve use case 1, the particle O₃ could be added to the training features due to its strong correlation with PM10. 
 This was not done initially because the chosen weather station for training the model does not measure O₃.
-<br>
-Furthermore, additional data points use case 2, for example traffic data near the weather stations and more detailed wind and weather data (f.e. humidity, rainfall, etc.)
-could be beneficial. Moreover, the model could be trained to predict pm10 values further in the future by using different increments of data points of the past. 
-For example, training on h-2 to predict values two hours into the future.
-<br>
-In regard to use case 3 an iterative approach seems appropriate because as of now only the first missing hour is predictable. 
-To completely fill all missing values, including longer time periods, the trained model could be used to incrementally predict each value one by one and utilise the predicted value as input for the following prediction.	Additionally, more functionality could be added to the Streamlit app. 
-For example the threshold for pm10 measurements according to the EU and/or WHO within the line graphs.
-<br>
-Additionally, the repository could be restructured and clean in a way that the data files are not scattered in multiple directories
-to make navigating and using the data more efficient.
+
+
+Furthermore, incorporating additional data points for use case 2, such as traffic data near the weather stations and 
+more detailed wind and weather data (e.g., humidity, rainfall, etc.), could be beneficial. 
+Additionally, the model could be trained to predict PM10 values further into the future by using various increments 
+of past data points. For example, training on h-2 to predict values two hours ahead.
+
+
+Regarding use case 3, an iterative approach seems appropriate, as currently, only the first missing hour is predictable. 
+To completely fill all missing values, including longer time periods, the trained model could be utilised to 
+incrementally predict each value one by one, using the predicted value as input for the next prediction. 
+Moreover, additional functionality could be added to the Streamlit app, such as displaying the thresholds for pm10 
+measurements according to the EU and/or WHO within the line graphs.
+
+
+Finally, the repository could be restructured and organized to ensure that the data files are not scattered across multiple directories. 
+This would enhance navigation and efficient use of the data.
