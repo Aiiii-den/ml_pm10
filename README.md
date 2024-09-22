@@ -13,7 +13,7 @@ Whereas long term health risks include:
 - Reduced lung function
 - Development of cardiovascular and respiratory diseases
 - Increased rate of disease progression
-- Reduction in life expectancy
+- Reduction in life expectancy [^1]
 
 I personally came into contact with the topic of air quality in 2017/18 when I spend 6 month in China. Especially in the winter 
 months the air got so bad that even opening the windows was strongly advised against. This experience caused me to be more aware
@@ -22,7 +22,7 @@ of potential harm caused by bad air quality even years after.
 The motivation of this project is to bring more awareness of the effect of air quality to both my classmates and people using my 
 application. Additionally, the final models should support the knowledge base of pm10 values in Berlin and help make informed
 decisions about activities and protective measures. To define the exact goals of the project two problem statements and two use cases were developed.
-[^1]
+
 
 ###### _Problem Statements_
 
@@ -461,6 +461,6 @@ This would enhance navigation and efficient use of the data.
 ----
 
 ### Sources
-[^1] https://www.health.nsw.gov.au/environment/air/Pages/particulate-matter.aspx
-[^2] https://towardsdatascience.com/comparative-study-on-classic-machine-learning-algorithms-24f9ff6ab222
-[^3] https://learn.microsoft.com/en-us/azure/architecture/data-science-process/overview
+[^1]: https://www.health.nsw.gov.au/environment/air/Pages/particulate-matter.aspx
+[^2]: https://towardsdatascience.com/comparative-study-on-classic-machine-learning-algorithms-24f9ff6ab222
+[^3]: https://learn.microsoft.com/en-us/azure/architecture/data-science-process/overview
