@@ -22,7 +22,7 @@ of potential harm caused by bad air quality even years after.
 The motivation of this project is to bring more awareness of the effect of air quality to both my classmates and people using my 
 application. Additionally, the final models should support the knowledge base of pm10 values in Berlin and help make informed
 decisions about activities and protective measures. To define the exact goals of the project two problem statements and two use cases were developed.
-(source: https://www.health.nsw.gov.au/environment/air/Pages/particulate-matter.aspx)
+[^1]
 
 ###### _Problem Statements_
 
@@ -137,7 +137,7 @@ For this project the following three regression models where selected: k-NN (k-n
 K-NN was chosen for its simplicity and small amount of hyperparameters to tune. Additionally, decision tree and random forest
 were selected for their efficient handling collinearity and the interpretability of their results. Although predictions of 
 random forests are more difficult to interpret, the algorithm is less prone to overfitting and more accurate and robust than
-the decision tree algorithm. https://towardsdatascience.com/comparative-study-on-classic-machine-learning-algorithms-24f9ff6ab222
+the decision tree algorithm. [^2]
 
 For the hyperparameter tuning of the decision tree and random forest algorithm the following param grid is used:
 ``` python 
@@ -168,8 +168,7 @@ and overfitting/underfitting rate (|test median absolute error - train median ab
 
 ### 3. Sprint Overview #TODO
 The project consist of 11 sprints running from April 4th 2024 to September 23rd 2024, excluding a summer break from 29.07. - 19.08. 
-The sprint planning was structured according to the ML development cycle by Microsoft.
-https://learn.microsoft.com/en-us/azure/architecture/data-science-process/overview
+The sprint planning was structured according to the ML development cycle by Microsoft. [^3]
 This cycle includes five phases:
 Business Understanding, Data Acquisition & Understanding, Feature Engineering, Modelling, Deployment and Customer Acceptance. Although the model proposes a 
 circular and iterative development lifecycle this project was done in the following order, excluding the last phase of the original lifecycle:
@@ -457,3 +456,11 @@ measurements according to the EU and/or WHO within the line graphs.
 
 Finally, the repository could be restructured and organized to ensure that the data files are not scattered across multiple directories. 
 This would enhance navigation and efficient use of the data.
+
+
+----
+
+### Sources
+[^1] https://www.health.nsw.gov.au/environment/air/Pages/particulate-matter.aspx
+[^2] https://towardsdatascience.com/comparative-study-on-classic-machine-learning-algorithms-24f9ff6ab222
+[^3] https://learn.microsoft.com/en-us/azure/architecture/data-science-process/overview
