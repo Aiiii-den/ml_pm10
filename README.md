@@ -1,8 +1,8 @@
 ### 1. Introduction
 ###### _Context and Motivation_ 
 
-Pm10, abbreviation of particle matter 10, is an air particle with a diameter of less than 10µm and is measured in micrograms per cubic meter (μg/m³). Although it seems 
-the majority of people are not aware of it, pm10 can cause severe short and long term health issues.
+Pm10 refers to particulate matter with a diameter of less than 10 µm, and is measured in micrograms per cubic meter (μg/m³). 
+Although many people may not be aware of it, pm10 can lead to serious short- and long-term health issues.
 
 Short term health complications include:
 - Irritated eyes, nose and throat
