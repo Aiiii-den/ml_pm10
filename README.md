@@ -405,16 +405,25 @@ to be predicted by barely using this model. To achieve that goal a model predict
 iteratively applied with the model of pm10 imputation. This way the predictions of pm10 and pm2.5 can be used as input for
 the prediction of the next hour. 
 
-### 5. Conclusion #TODO
+### 5. Conclusion 
+As stated in the analysis and discussion section, use case 1 was not successful,
+as none of the models met the acceptance criteria. This indicates that while PM10 shows significant correlations with 
+other air particles, it is insufficient to predict PM10 based solely on these other particles.
 
-TODOOOOOOO
-Use case 1 not successful
-<br>
-Use case 2 successful for stations of category traffic and residential areas (background), 
-city outskirts (suburbs) slightly missed the acceptance criteria; however only one station, no generalisation possible
-<br>
-Use case 3 partly successful - can impute data for a single missing hour. To impute longer
-periods prediction model of 2.5 needed to iteratively fill the missing values
+
+In contrast, use case 2 met both acceptance criteria for stations categorized as traffic and residential areas (background). 
+Although the station in the city outskirts (suburbs) slightly missed the acceptance criteria, 
+it is not possible to generalize these results, as mc032 is a specialized weather station located directly in a forest. 
+Further testing with additional weather stations is needed to make a final decision regarding the model's applicability 
+in suburban areas.
+
+
+Finally, use case 3 demonstrated partial success, as it effectively imputed data for a single missing hour. 
+However, to handle longer periods of missing data, an additional PM2.5 model is required, 
+as both PM10 and PM2.5 are necessary for accurate predictions. 
+With both models, longer gaps in data could be filled using an iterative approach, 
+where the prediction from the previous hour serves as input for the next.
+
 
 ### 6. Limitations & Future Possibilities 
 ###### _Data Limitations_
