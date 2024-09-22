@@ -15,13 +15,13 @@ Whereas long term health risks include:
 - Increased rate of disease progression
 - Reduction in life expectancy [^1]
 
-I personally came into contact with the topic of air quality in 2017/18 when I spend 6 month in China. Especially in the winter 
-months the air got so bad that even opening the windows was strongly advised against. This experience caused me to be more aware
-of potential harm caused by bad air quality even years after. 
+I first encountered the topic of air quality in 2017/18 during a six-month stay in China. 
+Particularly in the winter months, the air quality deteriorated to such an extent that even opening windows was strongly discouraged. 
+This experience heightened my awareness of the potential harm caused by poor air quality, leaving a lasting impact on me even years later.
 
-The motivation of this project is to bring more awareness of the effect of air quality to both my classmates and people using my 
-application. Additionally, the final models should support the knowledge base of pm10 values in Berlin and help make informed
-decisions about activities and protective measures. To define the exact goals of the project two problem statements and two use cases were developed.
+The motivation for this project is to raise awareness of the effects of air quality among both my classmates and users of my application. 
+Additionally, the final models aim to enhance the knowledge base of pm10 values in Berlin, helping individuals make informed decisions about activities and protective measures. 
+To clarify the project's objectives, two problem statements and three use cases were developed.
 
 
 ###### _Problem Statements_
