@@ -386,7 +386,6 @@ model will be made based on the test median absolute error. This results in Rand
 The input features and hyperparameter of RandomForestRegressor V1 are the following: 
 <br>
 - **Input features:** hour, day, month, year, day_of_week, is_weekend, no2, no, nox, no2_h-1, no_h-1, nox_h-1, pm10_h-1, pm2.5_h-1
-<br>
 - **Hyperparameter:** max_depth=20, max_features='sqrt', min_samples_leaf=5, random_state=123
 
 | Model + Version | TEST_median_absolute_error | TRAIN_median_absolute_error | Difference |
