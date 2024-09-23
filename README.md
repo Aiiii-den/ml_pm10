@@ -32,9 +32,9 @@ This disables individuals and organisation to make informed decisions about outd
 periods of unhealthy pm10 levels.
 
 
-2. **Missing historical data leads to an incomplete understanding of PM10 trends and developments.**    
+2. **Missing historical data leads to an incomplete understanding of pm10 trends and developments.**    
 The weather monitoring system in Berlin (BLUME) experiences sensor failures over longer period of times, 
-leading to gaps in historical data collection for PM10 levels. This missing data makes it difficult to analyze past trends, 
+leading to gaps in historical data collection for pm10 levels. This missing data makes it difficult to analyze past trends, 
 assess air quality over time, and accurately support long-term environmental decisions.
 
 To address these problem statements three use cases were created. The first two focus on predicting pm10 values of the future,
@@ -218,12 +218,12 @@ file.
 
 ###### Sprint 5: Data Exploration and Feature Engineering (Phase 2 & 3)
 During sprint 5 a detailed comparison of New Year's air quality from 2023 to 2024 was performed, 
-along with an annual analysis from 2016 to 2024, showing total PM10, average PM10, and PM10 counts. 
-Additionally, monthly comparisons of average PM10 were visualized, leading to a deep dive into November 2022 due to 
+along with an annual analysis from 2016 to 2024, showing total pm10, average pm10, and pm10 counts. 
+Additionally, monthly comparisons of average pm10 were visualized, leading to a deep dive into November 2022 due to 
 significant spikes of pm10 in November 2022.
 Afterward, null values in the air quality data were analyzed, and the previous mentioned time zone issue was resolved by 
 removing time zone information from the datetime field altogether. 
-Finally, wind data was explored, and a heatmap was created to show correlations between PM10, wind speed, and wind direction.
+Finally, wind data was explored, and a heatmap was created to show correlations between pm10, wind speed, and wind direction.
 <br> For more details please refer to the [sprint 5 documentation](https://github.com/Aiiii-den/ml_pm10/blob/main/sprint_5/05_in_depth_data_exploration_2.md) 
 file.
 
@@ -405,8 +405,8 @@ the prediction of the next hour.
 
 ### 5. Conclusion 
 As stated in the analysis and discussion section, use case 1 was not successful,
-as none of the models met the acceptance criteria. This indicates that while PM10 shows significant correlations with 
-other air particles, it is insufficient to predict PM10 based solely on these other particles.
+as none of the models met the acceptance criteria. This indicates that while pm10 shows significant correlations with 
+other air particles, it is insufficient to predict pm10 based solely on these other particles.
 
 
 In contrast, use case 2 met both acceptance criteria for stations categorized as traffic and residential areas (background). 
@@ -418,7 +418,7 @@ in suburban areas.
 
 Finally, use case 3 demonstrated partial success, as it effectively imputed data for a single missing hour. 
 However, to handle longer periods of missing data, an additional PM2.5 model is required, 
-as both PM10 and PM2.5 are necessary for accurate predictions. 
+as both pm10 and PM2.5 are necessary for accurate predictions. 
 With both models, longer gaps in data could be filled using an iterative approach, 
 where the prediction from the previous hour serves as input for the next.
 
@@ -436,13 +436,13 @@ While Random Forest Regression had the best result for most use cases and versio
 This retraining would be necessary in the long run to take current pm10 developments into account for future predictions.
 
 ###### _Future Possibilities_
-To improve use case 1, the particle O₃ could be added to the training features due to its strong correlation with PM10. 
+To improve use case 1, the particle O₃ could be added to the training features due to its strong correlation with pm10. 
 This was not done initially because the chosen weather station for training the model does not measure O₃.
 
 
 Furthermore, incorporating additional data points for use case 2, such as traffic data near the weather stations and 
 more detailed wind and weather data (e.g., humidity, rainfall, etc.), could be beneficial. 
-Additionally, the model could be trained to predict PM10 values further into the future by using various increments 
+Additionally, the model could be trained to predict pm10 values further into the future by using various increments 
 of past data points. For example, training on h-2 to predict values two hours ahead.
 
 
